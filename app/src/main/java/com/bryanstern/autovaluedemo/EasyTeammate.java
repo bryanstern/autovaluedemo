@@ -15,7 +15,7 @@ public abstract class EasyTeammate implements Teammate, Parcelable {
     public abstract String lastName();
     public abstract Date joinDate();
     public abstract int petCount();
-    @Nullable
+    @Nullable @Redacted
     public abstract String favoriteCoffeeDrink();
 
     public static Builder builder() {
