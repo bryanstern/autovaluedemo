@@ -1,5 +1,6 @@
 package com.bryanstern.autovaluedemo;
 
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
@@ -9,7 +10,7 @@ import com.google.common.base.Preconditions;
 import java.util.Date;
 
 @AutoValue
-public abstract class EasyTeammate implements Teammate {
+public abstract class EasyTeammate implements Teammate, Parcelable {
     public abstract String firstName();
     public abstract String lastName();
     public abstract Date joinDate();
