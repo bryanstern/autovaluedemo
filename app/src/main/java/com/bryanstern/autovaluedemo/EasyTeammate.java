@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.google.auto.value.AutoValue;
-import com.google.common.base.Preconditions;
 
 import java.util.Date;
 
@@ -17,9 +16,28 @@ public abstract class EasyTeammate implements Teammate {
     @Nullable
     public abstract String favoriteCoffeeDrink();
 
+    public static Builder builder() {
+        return new AutoValue_EasyTeammate.Builder();
+    }
+
+    @AutoValue.Builder
+    public interface Builder {
+        Builder firstName(String name);
+        Builder lastName(String name);
+        Builder joinDate(Date date);
+        Builder petCount(int pets);
+        Builder favoriteCoffeeDrink(@Nullable String favoriteCoffeeDrink);
+        EasyTeammate build();
+    }
+
     public static Teammate create(@NonNull String firstName, @NonNull String lastName, @NonNull Date joinDate, int petCount, @Nullable String favCoffeeDrink) {
-        Preconditions.checkArgument(petCount >= 0);
-        return new AutoValue_EasyTeammate(firstName, lastName, joinDate, petCount, favCoffeeDrink);
+        return builder()
+                .firstName(firstName)
+                .lastName(lastName)
+                .joinDate(joinDate)
+                .petCount(petCount)
+                .favoriteCoffeeDrink(favCoffeeDrink)
+                .build();
     }
 
     @Override
