@@ -22,6 +22,12 @@ public abstract class EasyTeammate implements Teammate, Parcelable {
         return new AutoValue_EasyTeammate.Builder();
     }
 
+    public abstract Builder toBuilder();
+
+    public EasyTeammate withFirstName(@NonNull String name) {
+        return toBuilder().firstName(name).build();
+    }
+
     @AutoValue.Builder
     public abstract static class Builder {
         public abstract Builder firstName(String name);
@@ -29,6 +35,8 @@ public abstract class EasyTeammate implements Teammate, Parcelable {
         public abstract Builder joinDate(Date date);
         public abstract Builder petCount(int pets);
         public abstract Builder favoriteCoffeeDrink(@Nullable String favoriteCoffeeDrink);
+
+        public abstract String firstName();
 
         abstract EasyTeammate autoBuild();
 

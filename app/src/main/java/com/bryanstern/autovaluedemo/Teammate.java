@@ -21,7 +21,6 @@ interface Teammate {
     /**
      * Number of pets they own, cannot be less than 0.
      */
-    @NonNull
     int petCount();
 
     @Nullable
